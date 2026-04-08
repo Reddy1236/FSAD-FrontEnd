@@ -1,55 +1,84 @@
-# Student Peer Review & Collaboration Platform
+# Student Peer Review Frontend
 
-A modern SaaS-style web application for student peer review and collaboration, built with React and Vite.
+Frontend for the Student Peer Review and Collaboration Platform, built with React and Vite.
 
 ## Features
 
-### Students
-- Dashboard with stats (projects uploaded, reviews pending, average rating, collaboration score)
-- Upload projects with drag-and-drop file upload
-- Peer review interface with rating system and structured feedback
-- Activity timeline and notifications
-- Download feedback report
+### Student workflow
+- View project and review statistics from a dashboard
+- Upload project details and supporting files
+- Submit peer reviews with ratings and structured feedback
+- Track recent activity and notifications
+- Export reports
 
-### Teachers
-- Analytics dashboard (total students, projects, review completion %)
-- Submission trends and collaboration activity charts
-- Sortable, searchable projects table
-- Assign peer reviewers to projects
-- Final approval, rejection, or improvement request with comments
+### Teacher workflow
+- View platform analytics and submission trends
+- Browse and manage student projects
+- Assign reviewers
+- Approve, reject, or request improvements
 
-### Design
-- Split-screen login with illustration panel and glass-style card
-- Role selection (Student/Teacher)
-- Captcha verification (demo: enter `PEER`)
-- Dark/light theme toggle
-- Responsive layout
+### UI highlights
+- Split-screen login page
+- Role-based navigation
+- Math captcha on login
+- Light and dark theme toggle
+- Responsive layout for desktop and mobile
 
-## Quick Start
+## Tech Stack
+- React 19
+- Vite 7
+- React Router 7
+- Tailwind CSS 4
+- Recharts
+- Lucide React
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18 or later
+- npm 9 or later
+
+### Run locally
 
 ```bash
-cd peer-review-app
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+The app starts on [http://localhost:5173](http://localhost:5173).
 
-### Demo Login (default accounts only – no database)
-| Role    | Email              | Password    |
-|---------|--------------------|-------------|
-| Student | student@demo.com   | student123  |
-| Teacher | teacher@demo.com   | teacher123  |
+## Environment
 
-Solve the addition captcha, then sign in.
-- Click Sign in
+Create a `.env` file if you want to point the frontend to a deployed backend:
 
-## Tech Stack
-- React 19 + Vite 7
-- React Router v7
-- Tailwind CSS v4
-- Recharts (charts)
-- Lucide React (icons)
+```env
+VITE_API_BASE_URL=http://localhost:8080/api
+```
+
+If `VITE_API_BASE_URL` is not set:
+- development mode uses `http://localhost:8080/api`
+- production build falls back to same-origin `/api`
+
+## Demo Login
+
+| Role | Email | Password |
+|------|-------|----------|
+| Student | `student@demo.com` | `student123` |
+| Teacher | `teacher@demo.com` | `teacher123` |
+
+Complete the math captcha shown on the login form, then sign in.
 
 ## Project Structure
-See `docs/DOCUMENTATION.md` for wireframes, component hierarchy, routing, database schema, and API endpoints.
+
+- `src/` contains pages, layouts, reusable components, context, config, and utilities
+- `public/` contains static assets
+- `docs/DOCUMENTATION.md` contains wireframes, routing notes, data model ideas, and API planning
+
+## Available Scripts
+
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+```
